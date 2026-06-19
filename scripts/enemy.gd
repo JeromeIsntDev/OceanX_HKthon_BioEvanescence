@@ -25,8 +25,10 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	stateDuration += delta
-	LIGHT_RADIUS = minRadius + player.LUMINESCENCE * 10 * maxRadius
-
+	#LIGHT_RADIUS = minRadius + player.LUMINESCENCE * maxRadius
+	var distance : float = sqrt((position.x - player.position.x) * (position.x - player.position.x) + (position.y - player.position.y) * (position.y - player.position.y))
+	distance = clamp(maxRadius - distance, 0, maxRadius)
+	player.danger_level = distance / (maxRadius * 2);
 	var in_light := false
 	if player:
 		in_light = global_position.distance_to(player.global_position) <= LIGHT_RADIUS

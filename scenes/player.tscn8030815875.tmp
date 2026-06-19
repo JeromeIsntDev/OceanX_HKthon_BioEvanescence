@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://ce5dh5ampndta"]
+
+[ext_resource type="Script" uid="uid://c4xxcn8gslqkt" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://ciqvgy42ar7m5" path="res://assets/player/Fih.png" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://d2ci47cbb8yq6" path="res://assets/mask/ellipse.png" id="2_qhqgy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
+size = Vector2(57, 61)
+
+[node name="Player" type="CharacterBody2D" unique_id=1663085969 node_paths=PackedStringArray("GlowMask")]
+script = ExtResource("1_g2els")
+GlowMask = NodePath("GlowMask")
+
+[node name="GlowMask" type="Sprite2D" parent="." unique_id=1820465845]
+visible = false
+modulate = Color(1, 1, 1, 0.47058824)
+self_modulate = Color(1, 1, 1, 0.47058824)
+scale = Vector2(3.995, 3.995)
+texture = ExtResource("2_qhqgy")
+
+[node name="PlayerSprite" type="Sprite2D" parent="." unique_id=653034810]
+position = Vector2(-0.50000095, -2.6226044e-06)
+scale = Vector2(0.69343066, 1.1460674)
+texture = ExtResource("2_g2els")
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="." unique_id=1964719860]
+scale = Vector2(1.65, 1.65)
+shape = SubResource("RectangleShape2D_g2els")
