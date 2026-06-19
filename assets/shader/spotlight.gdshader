@@ -4,9 +4,6 @@ uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
 uniform float aspect = 1.7777777;
 uniform vec2 mouse_pos = vec2(0.5);
 uniform float mouse_range = 0.2;
-uniform vec2 pos = vec2(0.5, 0.5);
-uniform float range = 0.1;
-uniform float danger = 0.0;
 
 void vertex() {
 	// Called for every vertex the material is visible on.
@@ -17,9 +14,9 @@ void fragment() {
 	vec2 uv = UV - mouse_pos;
 	uv = vec2(uv.x, uv.y/ aspect);
 	
-	float mask = range - length(uv);
-	mask = smoothstep(0, 0.12, mask );
-	COLOR.rgb = mix(vec3(danger, 0.0, 0.0), texture(SCREEN_TEXTURE, SCREEN_UV).rgb, mask);
+	float mask = mouse_range - length(uv);
+	mask = smoothstep(0, 0.12, mask);
+	COLOR.rgb = mix(vec3(0.0), texture(SCREEN_TEXTURE, SCREEN_UV).rgb, mask);
 }
 
 //void light() {
