@@ -3,16 +3,16 @@
 [ext_resource type="PackedScene" uid="uid://ce5dh5ampndta" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://bouwjmxp4sy77" path="res://scenes/World.tscn" id="1_tefeu"]
 [ext_resource type="PackedScene" uid="uid://3de4huieval4" path="res://scenes/enemy.tscn" id="2_0wfyh"]
-<<<<<<< HEAD
+[ext_resource type="Texture2D" uid="uid://we63bgbl7ati" path="res://icon.svg" id="4_jyhfs"]
+[ext_resource type="Script" uid="uid://cmo2amomucwfr" path="res://scripts/prey_lvl_1.gd" id="5_o6xl0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5nq6w"]
 [ext_resource type="Script" uid="uid://cjj14vhmp3yfx" path="res://scripts/audio_manager.gd" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cqhygjuvn3e6q" path="res://scenes/lvl1_prey.tscn" id="4_jyhfs"]
 =======
 >>>>>>> parent of 2d73e1d (Baseline Push)
 
 [node name="Main" type="Node2D" unique_id=1090391997]
-
-[node name="World" parent="." unique_id=1347648242 instance=ExtResource("1_tefeu")]
-position = Vector2(-1600, -1600)
 
 [node name="Player" parent="." unique_id=1663085969 groups=["player"] instance=ExtResource("1_o5qli")]
 
@@ -36,7 +36,6 @@ player = NodePath("../Player")
 <<<<<<< HEAD
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=775250798]
-script = ExtResource("3_sugp2")
 
 [node name="PreyLvl1" type="CharacterBody2D" parent="." unique_id=1109266914]
 script = ExtResource("5_o6xl0")
@@ -47,6 +46,14 @@ scale = Vector2(4.9999995, 4.9999995)
 shape = SubResource("CircleShape2D_5nq6w")
 debug_color = Color(0.33333334, 1, 0, 0.41960785)
 
+[node name="Sprite2D" type="Sprite2D" parent="PreyLvl1" unique_id=256225872]
+position = Vector2(203, -70)
+rotation = -3.1415927
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_jyhfs")
+
+[node name="World" parent="." unique_id=1347648242 instance=ExtResource("1_tefeu")]
+position = Vector2(-1600, -1600)
 [node name="Lvl1Prey3" parent="." unique_id=1770444847 instance=ExtResource("4_jyhfs")]
 position = Vector2(0, 183)
 
