@@ -1,19 +1,23 @@
 extends CharacterBody2D
 
-@export var MAX_SPEED : float = 1.0
-@export var ACCELERATION : float = 400.0
+@export var MAX_SPEED : float = 300.0
+@export var ACCELERATION : float = 150.0
 @export var FRICTION : float = 8.5
 @export var player : CharacterBody2D
+@export var LIGHT_RADIUS : float = 135.0 
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player");
 
 func _physics_process(delta: float) -> void:
 	var direction : Vector2;
-	if player :
-		direction = (player.global_position - position).normalized();
+	if player:
+		var dist := global_position.distance_to(player.global_position)
+		if dist <= LIGHT_RADIUS:
+			direction = (player.global_position - global_position).normalized()
+			print("game over");
 	else:
-		print("player missing");
+		print("player missing")
 	movement(delta, direction);
 	move_and_slide();
 #!_physic_process
