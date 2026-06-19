@@ -12,6 +12,8 @@
 position = Vector2(-1600, -1600)
 
 [node name="Player" parent="." unique_id=1663085969 groups=["player"] instance=ExtResource("1_o5qli")]
+ACCELERATION = 200.0
+FRICTION = 2.5
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=2024496615]
 process_callback = 0
