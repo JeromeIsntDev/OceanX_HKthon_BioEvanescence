@@ -40,3 +40,6 @@ position = Vector2(-4, -175)
 
 [node name="Lvl1Prey5" parent="." unique_id=2099750255 instance=ExtResource("4_jyhfs")]
 position = Vector2(-201, 148)
+
+[node name="Lvl1Prey6" parent="." unique_id=725316263 instance=ExtResource("4_jyhfs")]
+position = Vector2(165, 98)
