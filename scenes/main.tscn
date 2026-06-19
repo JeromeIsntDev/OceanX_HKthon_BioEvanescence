@@ -2,15 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://ce5dh5ampndta" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://3de4huieval4" path="res://scenes/enemy.tscn" id="2_0wfyh"]
-[ext_resource type="Script" uid="uid://cjj14vhmp3yfx" path="res://scripts/audio_manager.gd" id="3_jyhfs"]
-[ext_resource type="Script" uid="uid://dx4cewnrgv4ct" path="res://scripts/sound_effect.gd" id="4_tbgi4"]
-[ext_resource type="AudioStream" uid="uid://bnwl8y4hfj1w0" path="res://assets/sounds/dragon-studio-pop-402324.mp3" id="5_tbgi4"]
-[ext_resource type="Script" uid="uid://ctgj4k4xsf26e" path="res://scripts/test_audio_2d.gd" id="6_tefeu"]
+[ext_resource type="Script" uid="uid://cjj14vhmp3yfx" path="res://scripts/audio_player.gd" id="3_sugp2"]
+[ext_resource type="Texture2D" uid="uid://we63bgbl7ati" path="res://icon.svg" id="4_jyhfs"]
+[ext_resource type="Script" uid="uid://cmo2amomucwfr" path="res://scenes/prey_lvl_1.gd" id="4_tbgi4"]
 
-[sub_resource type="Resource" id="Resource_tefeu"]
-script = ExtResource("4_tbgi4")
-stream = ExtResource("5_tbgi4")
-metadata/_custom_type_script = "uid://dx4cewnrgv4ct"
+[sub_resource type="CircleShape2D" id="CircleShape2D_5nq6w"]
 
 [node name="Main" type="Node2D" unique_id=1090391997]
 
@@ -26,9 +22,20 @@ position_smoothing_enabled = true
 position = Vector2(477, 208)
 player = NodePath("../Player")
 
-[node name="AudioManager" type="Node2D" parent="." unique_id=1722568776]
-script = ExtResource("3_jyhfs")
-Sounds = Array[ExtResource("4_tbgi4")]([SubResource("Resource_tefeu")])
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=775250798]
+script = ExtResource("3_sugp2")
 
-[node name="TestAudio2D" type="Node2D" parent="." unique_id=120205290]
-script = ExtResource("6_tefeu")
+[node name="PreyLvl1" type="CharacterBody2D" parent="." unique_id=1109266914]
+script = ExtResource("4_tbgi4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PreyLvl1" unique_id=1143746172]
+position = Vector2(201, -67)
+scale = Vector2(4.9999995, 4.9999995)
+shape = SubResource("CircleShape2D_5nq6w")
+debug_color = Color(0.33333334, 1, 0, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="PreyLvl1" unique_id=256225872]
+position = Vector2(203, -70)
+rotation = -3.1415927
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_jyhfs")
