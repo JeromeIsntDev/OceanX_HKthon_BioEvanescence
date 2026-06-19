@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dofn1m3qgo8im"]
 
-[ext_resource type="Script" uid="uid://d4bsijl5gg6t6" path="res://scenes/PreyManager.gd" id="1_hlgbb"]
+[ext_resource type="Script" uid="uid://d4bsijl5gg6t6" path="res://scripts/PreyManager.gd" id="1_hlgbb"]
 
 [node name="Prey" type="Node2D" unique_id=881411334]
 script = ExtResource("1_hlgbb")
