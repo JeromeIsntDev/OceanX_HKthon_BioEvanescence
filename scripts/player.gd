@@ -7,7 +7,6 @@ extends CharacterBody2D
 
 var original_mask : Color
 var glow_changing : bool = false
-var danger_level : float = 0.0
 
 func _ready() -> void:
 	original_mask = GlowMask.modulate
@@ -25,10 +24,6 @@ func _physics_process(delta: float) -> void:
 		if not glow_changing: change_glow(delta, original_mask, 5)
 
 	move_and_slide()
-	var uv : = Vector2(position.x/3200 + 0.5, position.y/3200 + 0.5)
-	SPOTLIGHT.updateShader(uv)
-	SPOTLIGHT.updateRange(LUMINESCENCE)
-	SPOTLIGHT.updateDanger(danger_level)
 #!_physic_process
 
 func change_flow_delay() -> void:
