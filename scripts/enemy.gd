@@ -17,12 +17,15 @@ enum State { IDLE, SWIM, CHASE }
 var state := State.IDLE
 var stateDuration : float = 0.0
 var swimDirection := Vector2.RIGHT
+var maxRadius : float = 200
+var minRadius : float = 10
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 
 func _physics_process(delta: float) -> void:
 	stateDuration += delta
+	LIGHT_RADIUS = minRadius + player.LUMINESCENCE * 10 * maxRadius
 
 	var in_light := false
 	if player:
