@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://cmo2amomucwfr" path="res://scripts/prey_lvl_1.gd" id="5_o6xl0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5nq6w"]
+[ext_resource type="Script" uid="uid://cjj14vhmp3yfx" path="res://scripts/audio_manager.gd" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://cqhygjuvn3e6q" path="res://scenes/lvl1_prey.tscn" id="4_jyhfs"]
 
 [node name="Main" type="Node2D" unique_id=1090391997]
 
@@ -45,3 +47,11 @@ texture = ExtResource("4_jyhfs")
 
 [node name="World" parent="." unique_id=1347648242 instance=ExtResource("1_tefeu")]
 position = Vector2(-1600, -1600)
+[node name="Lvl1Prey3" parent="." unique_id=1770444847 instance=ExtResource("4_jyhfs")]
+position = Vector2(0, 183)
+
+[node name="Lvl1Prey4" parent="." unique_id=903652907 instance=ExtResource("4_jyhfs")]
+position = Vector2(-4, -175)
+
+[node name="Lvl1Prey5" parent="." unique_id=2099750255 instance=ExtResource("4_jyhfs")]
+position = Vector2(-201, 148)
