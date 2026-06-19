@@ -32,5 +32,8 @@ func spawn_prey() -> void:
 	add_child(prey)
 
 func _on_prey_eaten() -> void:
+	print("prey eaten, respawning in ", respawn_delay, "s")
 	await get_tree().create_timer(respawn_delay).timeout
 	spawn_prey()
+	print("prey respawned")
+	

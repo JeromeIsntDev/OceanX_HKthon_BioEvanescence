@@ -45,6 +45,7 @@ func change_state(new_state: State) -> void:
 	stateDuration = 0.0
 
 func _on_body_entered(body: Node) -> void:
+	print("hit: ", body.name)
 	if body.is_in_group("player"):
 		eaten.emit()
-		queue_free()
+		call_deferred("queue_free")
