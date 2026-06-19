@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 300.0
+const SPEED = 150.0
 const IDLE_DURATION = 2.0
 const SWIM_DURATION = 1.0
 
@@ -8,6 +8,8 @@ enum State { IDLE, SWIM }
 var state = State.IDLE
 var stateDuration = 0.0
 var swimDirection = Vector2.RIGHT
+
+@onready var sprite = $Sprite2D  # grabs the child node
 
 func _physics_process(delta: float) -> void:
 	stateDuration += delta
@@ -23,6 +25,7 @@ func _physics_process(delta: float) -> void:
 		
 		State.SWIM:
 			velocity = swimDirection * SPEED
+			sprite.flip_v = swimDirection.x < 0  # flip if moving left
 			
 			if stateDuration >= SWIM_DURATION:
 				change_state(State.IDLE)
