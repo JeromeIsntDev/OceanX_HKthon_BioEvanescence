@@ -33,9 +33,9 @@ func _physics_process(delta: float) -> void:
 		State.SWIM:
 			velocity = swimDirection * SPEED
 
-			sprite.flip_v = swimDirection.x < 0
+			sprite.flip_v = swimDirection.x > 0
 
-			sprite.flip_h = swimDirection.x > 0  # flip if moving left
+			#sprite.flip_h = swimDirection.x > 0  # flip if moving left
 			
 			if stateDuration >= SWIM_DURATION:
 				change_state(State.IDLE)

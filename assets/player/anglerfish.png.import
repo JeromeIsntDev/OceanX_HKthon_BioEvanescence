@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2f8o2o5s1p0n"
-path="res://.godot/imported/prey_shrimp.PNG-955d46ae9a23876c7845679ebe919c96.ctex"
+uid="uid://dn4lhlajghwbb"
+path="res://.godot/imported/anglerfish.png-57fb2e369b5d146e2a5f9fea12205d6f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/prey_shrimp.PNG"
-dest_files=["res://.godot/imported/prey_shrimp.PNG-955d46ae9a23876c7845679ebe919c96.ctex"]
+source_file="res://assets/player/anglerfish.png"
+dest_files=["res://.godot/imported/anglerfish.png-57fb2e369b5d146e2a5f9fea12205d6f.ctex"]
 
 [params]
 

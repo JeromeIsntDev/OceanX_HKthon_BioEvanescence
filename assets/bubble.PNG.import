@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2f8o2o5s1p0n"
-path="res://.godot/imported/prey_shrimp.PNG-955d46ae9a23876c7845679ebe919c96.ctex"
+uid="uid://bqsqmxf7xa8hf"
+path="res://.godot/imported/bubble.PNG-d3c047556e39c8c46e3d72275f5e4a4f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/prey_shrimp.PNG"
-dest_files=["res://.godot/imported/prey_shrimp.PNG-955d46ae9a23876c7845679ebe919c96.ctex"]
+source_file="res://assets/bubble.PNG"
+dest_files=["res://.godot/imported/bubble.PNG-d3c047556e39c8c46e3d72275f5e4a4f.ctex"]
 
 [params]
 
