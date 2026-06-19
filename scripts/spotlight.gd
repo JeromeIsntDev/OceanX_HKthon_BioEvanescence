@@ -5,6 +5,10 @@ func updateShader(pos: Vector2) -> void:
 
 func updateRange(value : float) -> void:
 	material.set_shader_parameter('range', value)
+	
+
+func updateDanger(value : float) -> void:
+	material.set_shader_parameter('danger', value)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
