@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var GlowMask : Sprite2D
 @export var SPOTLIGHT : ColorRect
 @export var LUMINESCENCE : float = 0.1;
-@export var AM : audio_manager
+
 
 var original_mask : Color
 var glow_changing : bool = false
@@ -15,8 +15,6 @@ var danger_level : float = 0.0
 func _ready() -> void:
 	original_mask = GlowMask.modulate
 	SPOTLIGHT = get_tree().get_first_node_in_group("spotlight");
-	AM.play_sound(0, self)
-	AM.play_sound(1,self)
 
 
 func _physics_process(delta: float) -> void:

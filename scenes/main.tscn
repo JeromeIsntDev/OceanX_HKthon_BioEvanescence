@@ -6,44 +6,15 @@
 [ext_resource type="Script" uid="uid://cjj14vhmp3yfx" path="res://scripts/audio_manager.gd" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cqhygjuvn3e6q" path="res://scenes/lvl1_prey.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://dofn1m3qgo8im" path="res://scenes/Prey.tscn" id="5_preym"]
-[ext_resource type="Script" uid="uid://dx4cewnrgv4ct" path="res://scripts/sound_effect.gd" id="6_choun"]
-[ext_resource type="AudioStream" uid="uid://dvys3btwpyy3t" path="res://assets/sounds/Ocean_Underwater_Distant_Ambience_LOOP.wav" id="7_ya4ey"]
-[ext_resource type="AudioStream" uid="uid://b51aqlflh5gvp" path="res://assets/sounds/Uderwater Ambience_Loop.wav" id="8_eb6dy"]
 
-<<<<<<< Updated upstream
-=======
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_o6xl0"]
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(1000, 1, 1)
-gravity = Vector3(0, -1000, 0)
-scale_min = 0.01
-scale_max = 0.049999997
-turbulence_enabled = true
-turbulence_influence_min = 0.010000001
-
-[sub_resource type="Resource" id="Resource_choun"]
-script = ExtResource("6_choun")
-stream = ExtResource("7_ya4ey")
-volume = 15.0
-metadata/_custom_type_script = "uid://dx4cewnrgv4ct"
-
-[sub_resource type="Resource" id="Resource_ya4ey"]
-script = ExtResource("6_choun")
-stream = ExtResource("8_eb6dy")
-volume = 15.0
-metadata/_custom_type_script = "uid://dx4cewnrgv4ct"
-
->>>>>>> Stashed changes
 [node name="Main" type="Node2D" unique_id=1090391997]
 
 [node name="World" parent="." unique_id=1347648242 instance=ExtResource("1_tefeu")]
 position = Vector2(-1612, -1622)
 
-[node name="Player" parent="." unique_id=1663085969 node_paths=PackedStringArray("AM") groups=["player"] instance=ExtResource("1_o5qli")]
+[node name="Player" parent="." unique_id=1663085969 groups=["player"] instance=ExtResource("1_o5qli")]
 ACCELERATION = 200.0
 FRICTION = 2.5
-AM = NodePath("../AudioStreamPlayer2D")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=2024496615]
 process_callback = 0
@@ -54,14 +25,16 @@ limit_bottom = 1600
 position_smoothing_enabled = true
 
 [node name="AudioListener2D" type="AudioListener2D" parent="Player" unique_id=1911857677]
-current = true
 
 [node name="Enemy" parent="." unique_id=789585528 node_paths=PackedStringArray("player") instance=ExtResource("2_0wfyh")]
 player = NodePath("../Player")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=775250798]
 script = ExtResource("3_sugp2")
-Sounds = Array[ExtResource("6_choun")]([SubResource("Resource_choun"), SubResource("Resource_ya4ey")])
 
 [node name="Prey" parent="." unique_id=881411334 instance=ExtResource("5_preym")]
 prey_scene = ExtResource("4_jyhfs")
+max_prey = 7
+respawn_delay = 4.0
+spawn_min_radius = 100.0
+spawn_max_radius = 250.0

@@ -4,7 +4,7 @@ extends Node2D
 @export var Sounds : Array[sound_effect]
 
 func play_sound(index: int, obj: Node2D) -> void:
-	if not Sounds[index]: push_error("MISSING AUDIO");
+	if Sounds[index]: push_error("MISSING AUDIO");
 	var new_sound : sound_effect = Sounds[index];
 	spawn_stream_player(new_sound, obj);
 
