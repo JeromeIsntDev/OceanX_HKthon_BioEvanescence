@@ -4,12 +4,17 @@ extends CharacterBody2D
 @export var ACCELERATION : float = 400.0
 @export var FRICTION : float = 8.5
 @export var GlowMask : Sprite2D
+@export var SPOTLIGHT : ColorRect
+@export var LUMINESCENCE : float = 0.1;
+
 
 var original_mask : Color
 var glow_changing : bool = false
+var danger_level : float = 0.0
 
 func _ready() -> void:
 	original_mask = GlowMask.modulate
+	SPOTLIGHT = get_tree().get_first_node_in_group("spotlight");
 
 
 func _physics_process(delta: float) -> void:
@@ -24,6 +29,10 @@ func _physics_process(delta: float) -> void:
 		if not glow_changing: change_glow(delta, original_mask, 5)
 
 	move_and_slide()
+	var uv : = Vector2(position.x/3200 + 0.5, position.y/3200 + 0.5)
+	SPOTLIGHT.updateShader(uv)
+	SPOTLIGHT.updateRange(LUMINESCENCE)
+	SPOTLIGHT.updateDanger(danger_level)
 #!_physic_process
 
 func change_flow_delay() -> void:
