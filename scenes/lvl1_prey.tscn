@@ -3,15 +3,17 @@
 [ext_resource type="Script" uid="uid://cmo2amomucwfr" path="res://scenes/lvl1_prey.gd" id="1_nphv4"]
 [ext_resource type="Texture2D" uid="uid://bt8xoir0rflxt" path="res://assets/prey_lanternfish.PNG" id="2_yple1"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_5nq6w"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yple1"]
 
-[node name="Lvl1Prey" type="CharacterBody2D" unique_id=283861651]
+[node name="Lvl1Prey" type="Node2D" unique_id=1014589325]
 script = ExtResource("1_nphv4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1201605059]
+[node name="area" type="Area2D" parent="." unique_id=592745953]
 scale = Vector2(4.9999995, 4.9999995)
-shape = SubResource("CircleShape2D_5nq6w")
-debug_color = Color(0.33333334, 1, 0, 0.41960785)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area" unique_id=1032693648]
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_yple1")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=147451358]
 scale = Vector2(0.05, 0.05)
