@@ -3,6 +3,8 @@ extends ColorRect
 func updateShader(pos: Vector2) -> void:
 	material.set_shader_parameter('pos', pos)
 
+func updateRange(value : float) -> void:
+	material.set_shader_parameter('range', value)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
