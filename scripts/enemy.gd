@@ -13,27 +13,33 @@ extends CharacterBody2D
 @export var IDLE_DURATION : float = 2.0
 @export var SWIM_DURATION : float = 1.0
 
+## How close to the player the enemy spawns
+@export var SPAWN_RADIUS : float = 200.0
+
+var maxRadius : float = 200
+var minRadius : float = 10
+
 enum State { IDLE, SWIM, CHASE }
 var state := State.IDLE
 var stateDuration : float = 0.0
 var swimDirection := Vector2.RIGHT
-var maxRadius : float = 200
-var minRadius : float = 10
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
+	if player:
+		var angle := randf() * TAU
+		global_position = player.global_position + Vector2(cos(angle), sin(angle)) * SPAWN_RADIUS
 
 func _physics_process(delta: float) -> void:
 	stateDuration += delta
-	#LIGHT_RADIUS = minRadius + player.LUMINESCENCE * maxRadius
-	var distance : float = sqrt((position.x - player.position.x) * (position.x - player.position.x) + (position.y - player.position.y) * (position.y - player.position.y))
+	var distance : float = global_position.distance_to(player.global_position)
 	distance = clamp(maxRadius - distance, 0, maxRadius)
-	player.danger_level = distance / (maxRadius * 2);
+	player.danger_level = distance / (maxRadius * 2)
+
 	var in_light := false
 	if player:
 		in_light = global_position.distance_to(player.global_position) <= LIGHT_RADIUS
 
-	# Switch into or out of CHASE
 	if in_light and state != State.CHASE:
 		change_state(State.CHASE)
 	elif not in_light and state == State.CHASE:
@@ -41,17 +47,14 @@ func _physics_process(delta: float) -> void:
 
 	match state:
 		State.IDLE:
-			# Gentle bobbing, same as prey
 			var idle_input := Vector2(0.0, sin(stateDuration * 2.0) * 0.1)
 			movement(delta, idle_input)
-
 			if stateDuration >= IDLE_DURATION:
 				swimDirection = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)).normalized()
 				change_state(State.SWIM)
 
 		State.SWIM:
 			movement(delta, swimDirection)
-
 			if stateDuration >= SWIM_DURATION:
 				change_state(State.IDLE)
 
@@ -66,11 +69,8 @@ func change_state(new_state: State) -> void:
 	stateDuration = 0.0
 
 func movement(delta: float, input: Vector2) -> void:
-	# Use WANDER_SPEED for idle/swim, MAX_SPEED for chase
 	var target_speed := MAX_SPEED if state == State.CHASE else WANDER_SPEED
-
 	var velocity_weight_x := 1.0 - exp(-(ACCELERATION if input.x else FRICTION) * delta)
 	velocity.x = lerp(velocity.x, input.x * target_speed, velocity_weight_x)
-
 	var velocity_weight_y := 1.0 - exp(-(ACCELERATION if input.y else FRICTION) * delta)
 	velocity.y = lerp(velocity.y, input.y * target_speed, velocity_weight_y)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbsl48jlx6tul"
-path="res://.godot/imported/goblin_shark.jpg-687fd1ba86fb7b60f114f97bee312b09.ctex"
+uid="uid://dje15v3f2houi"
+path="res://.godot/imported/prey_squid.png-ad99581d318e30ca94a19e8f3b8a41db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/goblin_shark.jpg"
-dest_files=["res://.godot/imported/goblin_shark.jpg-687fd1ba86fb7b60f114f97bee312b09.ctex"]
+source_file="res://assets/prey_squid.png"
+dest_files=["res://.godot/imported/prey_squid.png-ad99581d318e30ca94a19e8f3b8a41db.ctex"]
 
 [params]
 

@@ -1,82 +1,36 @@
-extends CharacterBody2D
+extends Node2D
 
-@export var MAX_SPEED : float = 150.0
-@export var ACCELERATION : float = 100.0
-@export var FRICTION : float = 8.5
-@export var player : CharacterBody2D
+@export var prey_scene : PackedScene
+@export var max_prey : int = 7
+@export var respawn_delay : float = 4.0
 
-## Radius of the anglerfish's light bubble — enemy chases only within this range.
-@export var LIGHT_RADIUS : float = 170.0
+## Spawn ring around the player
+@export var spawn_min_radius : float = 100.0
+@export var spawn_max_radius : float = 250.0
 
-## Wander tuning
-@export var WANDER_SPEED : float = 100.0
-@export var IDLE_DURATION : float = 2.0
-@export var SWIM_DURATION : float = 1.0
-
-## How close to the player the enemy spawns
-@export var SPAWN_RADIUS : float = 200.0
-
-var maxRadius : float = 200
-var minRadius : float = 10
-
-enum State { IDLE, SWIM, CHASE }
-var state := State.IDLE
-var stateDuration : float = 0.0
-var swimDirection := Vector2.RIGHT
+var player : Node2D
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
-	# Spawn at a random position close to the player
-	if player:
-		var angle := randf() * TAU
-		global_position = player.global_position + Vector2(cos(angle), sin(angle)) * SPAWN_RADIUS
+	for i in max_prey:
+		spawn_prey()
 
-func _physics_process(delta: float) -> void:
-	stateDuration += delta
-	var distance : float = sqrt((position.x - player.position.x) * (position.x - player.position.x) + (position.y - player.position.y) * (position.y - player.position.y))
-	distance = clamp(maxRadius - distance, 0, maxRadius)
-	player.danger_level = distance / (maxRadius * 2)
+func spawn_prey() -> void:
+	if not prey_scene:
+		push_error("PreyManager: prey_scene is not set!")
+		return
 
-	var in_light := false
-	if player:
-		in_light = global_position.distance_to(player.global_position) <= LIGHT_RADIUS
+	var prey = prey_scene.instantiate()
+	var angle := randf() * TAU
+	var dist := randf_range(spawn_min_radius, spawn_max_radius)
+	var origin := player.global_position if player else Vector2.ZERO
+	prey.position = origin + Vector2(cos(angle), sin(angle)) * dist
 
-	# Switch into or out of CHASE
-	if in_light and state != State.CHASE:
-		change_state(State.CHASE)
-	elif not in_light and state == State.CHASE:
-		change_state(State.IDLE)
+	prey.eaten.connect(_on_prey_eaten)
+	add_child(prey)
 
-	match state:
-		State.IDLE:
-			var idle_input := Vector2(0.0, sin(stateDuration * 2.0) * 0.1)
-			movement(delta, idle_input)
-
-			if stateDuration >= IDLE_DURATION:
-				swimDirection = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)).normalized()
-				change_state(State.SWIM)
-
-		State.SWIM:
-			movement(delta, swimDirection)
-
-			if stateDuration >= SWIM_DURATION:
-				change_state(State.IDLE)
-
-		State.CHASE:
-			var direction := (player.global_position - global_position).normalized()
-			movement(delta, direction)
-
-	move_and_slide()
-
-func change_state(new_state: State) -> void:
-	state = new_state
-	stateDuration = 0.0
-
-func movement(delta: float, input: Vector2) -> void:
-	var target_speed := MAX_SPEED if state == State.CHASE else WANDER_SPEED
-
-	var velocity_weight_x := 1.0 - exp(-(ACCELERATION if input.x else FRICTION) * delta)
-	velocity.x = lerp(velocity.x, input.x * target_speed, velocity_weight_x)
-
-	var velocity_weight_y := 1.0 - exp(-(ACCELERATION if input.y else FRICTION) * delta)
-	velocity.y = lerp(velocity.y, input.y * target_speed, velocity_weight_y)
+func _on_prey_eaten() -> void:
+	print("prey eaten, respawning in ", respawn_delay, "s")
+	await get_tree().create_timer(respawn_delay).timeout
+	spawn_prey()
+	print("prey respawned")
