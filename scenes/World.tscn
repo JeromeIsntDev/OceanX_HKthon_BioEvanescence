@@ -1,15 +1,14 @@
 [gd_scene format=3 uid="uid://bouwjmxp4sy77"]
 
 [ext_resource type="Shader" uid="uid://bv8gb1oor27fv" path="res://assets/shader/spotlight.gdshader" id="1_kqs1s"]
-[ext_resource type="Script" uid="uid://b8w6qa7kn8lxg" path="res://scenes/spotlight.gd" id="2_lyx27"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_io8um"]
+[ext_resource type="Script" uid="uid://b8w6qa7kn8lxg" path="res://scripts/spotlight.gd" id="2_lyx27"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kqs1s"]
 shader = ExtResource("1_kqs1s")
-shader_parameter/aspect = 1.7777777
 shader_parameter/pos = Vector2(0.5, 0.5)
 shader_parameter/range = 0.1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_io8um"]
 
 [node name="World" type="Node2D" unique_id=1347648242]
 
@@ -18,7 +17,15 @@ offset_right = 3200.0
 offset_bottom = 3200.0
 color = Color(0.003921569, 0.10980392, 0.30980393, 1)
 
+[node name="Spotlight" type="ColorRect" parent="." unique_id=1420170923 groups=["spotlight"]]
+z_index = 10
+material = SubResource("ShaderMaterial_kqs1s")
+offset_right = 3200.0
+offset_bottom = 3200.0
+script = ExtResource("2_lyx27")
+
 [node name="TopWall2" type="StaticBody2D" parent="." unique_id=645055385]
+position = Vector2(0, -160)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopWall2" unique_id=2093020257]
 position = Vector2(1600, 0)
@@ -26,7 +33,7 @@ scale = Vector2(160, 16)
 shape = SubResource("RectangleShape2D_io8um")
 
 [node name="BottomWall2" type="StaticBody2D" parent="." unique_id=1938502096]
-position = Vector2(0, 3200)
+position = Vector2(0, 3360)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWall2" unique_id=103176326]
 position = Vector2(1600, 0)
@@ -34,22 +41,15 @@ scale = Vector2(160, 16)
 shape = SubResource("RectangleShape2D_io8um")
 
 [node name="LeftWall3" type="StaticBody2D" parent="." unique_id=1997607073]
-position = Vector2(3200, 1600)
+position = Vector2(3360, 1600)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall3" unique_id=1527607864]
 scale = Vector2(16, 160)
 shape = SubResource("RectangleShape2D_io8um")
 
 [node name="LeftWall4" type="StaticBody2D" parent="." unique_id=542004456]
-position = Vector2(0, 1600)
+position = Vector2(-160, 1600)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall4" unique_id=406515717]
 scale = Vector2(16, 160)
 shape = SubResource("RectangleShape2D_io8um")
-
-[node name="Spotlight" type="ColorRect" parent="." unique_id=1420170923 groups=["spotlight"]]
-z_index = 10
-material = SubResource("ShaderMaterial_kqs1s")
-offset_right = 3200.0
-offset_bottom = 3200.0
-script = ExtResource("2_lyx27")

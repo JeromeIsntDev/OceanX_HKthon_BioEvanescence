@@ -17,6 +17,10 @@ FRICTION = 2.5
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=2024496615]
 process_callback = 0
+limit_left = -1600
+limit_top = -1600
+limit_right = 1600
+limit_bottom = 1600
 position_smoothing_enabled = true
 
 [node name="AudioListener2D" type="AudioListener2D" parent="Player" unique_id=1911857677]

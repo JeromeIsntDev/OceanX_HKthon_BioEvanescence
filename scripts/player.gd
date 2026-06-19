@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var FRICTION : float = 8.5
 @export var GlowMask : Sprite2D
 @export var SPOTLIGHT : ColorRect
+@export var LUMINESCENCE : float = 0.1;
 
 
 var original_mask : Color
@@ -29,6 +30,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	var uv : = Vector2(position.x/3200 + 0.5, position.y/3200 + 0.5)
 	SPOTLIGHT.updateShader(uv)
+	SPOTLIGHT.updateRange(LUMINESCENCE)
 #!_physic_process
 
 func change_flow_delay() -> void:
