@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://ce5dh5ampndta"]
 
 [ext_resource type="Script" uid="uid://c4xxcn8gslqkt" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://ciqvgy42ar7m5" path="res://assets/player/Fih.png" id="2_g2els"]
 [ext_resource type="Texture2D" uid="uid://d2ci47cbb8yq6" path="res://assets/mask/ellipse.png" id="2_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://dffxt0gunc8wi" path="res://assets/fish.png" id="3_qhqgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(57, 61)
@@ -20,8 +20,8 @@ texture = ExtResource("2_qhqgy")
 
 [node name="PlayerSprite" type="Sprite2D" parent="." unique_id=653034810]
 position = Vector2(-0.50000095, -2.6226044e-06)
-scale = Vector2(0.69343066, 1.1460674)
-texture = ExtResource("2_g2els")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_qhqgy")
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="." unique_id=1964719860]
 scale = Vector2(1.65, 1.65)
