@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cqhygjuvn3e6q"]
 
 [ext_resource type="Script" uid="uid://cmo2amomucwfr" path="res://scenes/lvl1_prey.gd" id="1_nphv4"]
-[ext_resource type="Texture2D" uid="uid://bt8xoir0rflxt" path="res://assets/prey_lanternfish.PNG" id="2_yple1"]
+[ext_resource type="Texture2D" uid="uid://7ihi2f01juys" path="res://assets/prey_lanternfish.PNG" id="2_yple1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yple1"]
 

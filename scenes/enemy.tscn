@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://3de4huieval4"]
 
-[ext_resource type="Texture2D" uid="uid://we63bgbl7ati" path="res://icon.svg" id="1_7p1mj"]
 [ext_resource type="Script" uid="uid://bo782yt3ugac7" path="res://scripts/enemy.gd" id="1_md0e3"]
+[ext_resource type="Texture2D" uid="uid://ckguxdpdg1bet" path="res://assets/goblin_shark.PNG" id="2_md0e3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md0e3"]
 size = Vector2(57, 61)
@@ -11,7 +11,7 @@ script = ExtResource("1_md0e3")
 
 [node name="EnemySprite" type="Sprite2D" parent="." unique_id=1827621628]
 position = Vector2(-0.50000095, -2.6226044e-06)
-texture = ExtResource("1_7p1mj")
+texture = ExtResource("2_md0e3")
 
 [node name="EnemyCollision" type="CollisionShape2D" parent="." unique_id=785745235]
 scale = Vector2(1.65, 1.65)
