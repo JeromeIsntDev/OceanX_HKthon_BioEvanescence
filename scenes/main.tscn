@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ce5dh5ampndta" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://bouwjmxp4sy77" path="res://scenes/World.tscn" id="1_tefeu"]
 [ext_resource type="PackedScene" uid="uid://3de4huieval4" path="res://scenes/enemy.tscn" id="2_0wfyh"]
-[ext_resource type="Script" uid="uid://cjj14vhmp3yfx" path="res://scripts/audio_player.gd" id="3_sugp2"]
+[ext_resource type="Script" uid="uid://cjj14vhmp3yfx" path="res://scripts/audio_manager.gd" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cqhygjuvn3e6q" path="res://scenes/lvl1_prey.tscn" id="4_jyhfs"]
 
 [node name="Main" type="Node2D" unique_id=1090391997]
@@ -37,3 +37,6 @@ position = Vector2(0, 183)
 
 [node name="Lvl1Prey4" parent="." unique_id=903652907 instance=ExtResource("4_jyhfs")]
 position = Vector2(-4, -175)
+
+[node name="Lvl1Prey5" parent="." unique_id=2099750255 instance=ExtResource("4_jyhfs")]
+position = Vector2(-201, 148)
