@@ -43,6 +43,7 @@ process_material = SubResource("ParticleProcessMaterial_o6xl0")
 [node name="AudioListener2D" type="AudioListener2D" parent="Player" unique_id=1911857677]
 
 [node name="Enemy" parent="." unique_id=789585528 node_paths=PackedStringArray("player") instance=ExtResource("2_0wfyh")]
+scale = Vector2(0.25, 0.25)
 player = NodePath("../Player")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=775250798]
@@ -50,7 +51,3 @@ script = ExtResource("3_sugp2")
 
 [node name="Prey" parent="." unique_id=881411334 instance=ExtResource("5_preym")]
 prey_scene = ExtResource("4_jyhfs")
-max_prey = 7
-respawn_delay = 4.0
-spawn_min_radius = 100.0
-spawn_max_radius = 250.0
