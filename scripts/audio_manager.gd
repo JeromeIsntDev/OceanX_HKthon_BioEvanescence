@@ -15,4 +15,5 @@ func spawn_stream_player(sound : sound_effect, obj: Node2D):
 	stream_player.pitch_scale = sound.pitch
 	stream_player.max_distance = sound.distance
 	obj.add_child(stream_player)
+	stream_player.finished.connect(stream_player.queue_free)
 	stream_player.play()

@@ -63,6 +63,11 @@ func _physics_process(delta: float) -> void:
 			movement(delta, direction)
 
 	move_and_slide()
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		print("I collided with ", collision.get_collider().name)
+		restart_level()
+		return
 
 func change_state(new_state: State) -> void:
 	state = new_state
@@ -74,3 +79,9 @@ func movement(delta: float, input: Vector2) -> void:
 	velocity.x = lerp(velocity.x, input.x * target_speed, velocity_weight_x)
 	var velocity_weight_y := 1.0 - exp(-(ACCELERATION if input.y else FRICTION) * delta)
 	velocity.y = lerp(velocity.y, input.y * target_speed, velocity_weight_y)
+	
+func restart_level():
+	call_deferred("_restart_level")
+
+func _restart_level():
+	get_tree().reload_current_scene()
