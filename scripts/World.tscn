@@ -1,10 +1,19 @@
 [gd_scene format=3 uid="uid://bouwjmxp4sy77"]
 
+[ext_resource type="Shader" uid="uid://bv8gb1oor27fv" path="res://assets/shader/spotlight.gdshader" id="1_kqs1s"]
+[ext_resource type="Script" uid="uid://b8w6qa7kn8lxg" path="res://scenes/spotlight.gd" id="2_lyx27"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_io8um"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kqs1s"]
+shader = ExtResource("1_kqs1s")
+shader_parameter/aspect = 1.7777777
+shader_parameter/pos = Vector2(0.5, 0.5)
+shader_parameter/range = 0.1
 
 [node name="World" type="Node2D" unique_id=1347648242]
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=989531154]
+[node name="Background" type="ColorRect" parent="." unique_id=989531154]
 offset_right = 3200.0
 offset_bottom = 3200.0
 color = Color(0.003921569, 0.10980392, 0.30980393, 1)
@@ -37,3 +46,9 @@ position = Vector2(0, 1600)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall4" unique_id=406515717]
 scale = Vector2(16, 160)
 shape = SubResource("RectangleShape2D_io8um")
+
+[node name="Spotlight" type="ColorRect" parent="." unique_id=1420170923 groups=["spotlight"]]
+material = SubResource("ShaderMaterial_kqs1s")
+offset_right = 3200.0
+offset_bottom = 3200.0
+script = ExtResource("2_lyx27")
