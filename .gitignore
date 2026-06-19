@@ -6,9 +6,6 @@
 # Godot-specific ignores
 .import/
 .import
-.PNG.import
-.png.import
-.jp.import
 export.cfg
 export_credentials.cfg
 
