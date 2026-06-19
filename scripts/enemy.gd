@@ -9,15 +9,14 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player");
 
 func _physics_process(delta: float) -> void:
-	var direction : Vector2;
-	if player :
-		direction = (player.global_position - position).normalized();
-	else:
-		print("player missing");
-	movement(delta, direction);
-	move_and_slide();
-#!_physic_process
-
+	stateDuration += delta
+	#LIGHT_RADIUS = minRadius + player.LUMINESCENCE * maxRadius
+	var distance : float = sqrt((position.x - player.position.x) * (position.x - player.position.x) + (position.y - player.position.y) * (position.y - player.position.y))
+	distance = clamp(maxRadius - distance, 0, maxRadius)
+	player.danger_level = distance / (maxRadius * 2);
+	var in_light := false
+	if player:
+		in_light = global_position.distance_to(player.global_position) <= LIGHT_RADIUS
 
 func movement(delta: float, input : Vector2) -> void:
 	var velocity_weight_x : float = 1.0 - exp( -(ACCELERATION if input.x else FRICTION) * delta)

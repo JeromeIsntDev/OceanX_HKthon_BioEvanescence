@@ -2,18 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqsqmxf7xa8hf"
-path="res://.godot/imported/bubble.PNG-d3c047556e39c8c46e3d72275f5e4a4f.ctex"
-uid="uid://ckguxdpdg1bet"
-path="res://.godot/imported/goblin_shark.PNG-5b8eda4ab7db382aef2fbb0d7568d2e3.ctex"
+uid="uid://7ihi2f01juys"
+path="res://.godot/imported/prey_lanternfish.PNG-02c70d02546ece9a74752d6516e216b1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/bubble.PNG"
-dest_files=["res://.godot/imported/bubble.PNG-d3c047556e39c8c46e3d72275f5e4a4f.ctex"]
+source_file="res://assets/prey_lanternfish.PNG"
+dest_files=["res://.godot/imported/prey_lanternfish.PNG-02c70d02546ece9a74752d6516e216b1.ctex"]
 
 [params]
 
