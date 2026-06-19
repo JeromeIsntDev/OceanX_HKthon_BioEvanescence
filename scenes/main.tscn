@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://3de4huieval4" path="res://scenes/enemy.tscn" id="2_0wfyh"]
 [ext_resource type="Script" uid="uid://cjj14vhmp3yfx" path="res://scripts/audio_manager.gd" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cqhygjuvn3e6q" path="res://scenes/lvl1_prey.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://dofn1m3qgo8im" path="res://scenes/Prey.tscn" id="5_preym"]
 
 [node name="Main" type="Node2D" unique_id=1090391997]
 
@@ -32,23 +33,9 @@ player = NodePath("../Player")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=775250798]
 script = ExtResource("3_sugp2")
 
-[node name="Lvl1Prey" parent="." unique_id=283861651 instance=ExtResource("4_jyhfs")]
-position = Vector2(-259, -5)
-
-[node name="Lvl1Prey2" parent="." unique_id=1020801805 instance=ExtResource("4_jyhfs")]
-position = Vector2(245, -4)
-
-[node name="Lvl1Prey3" parent="." unique_id=1770444847 instance=ExtResource("4_jyhfs")]
-position = Vector2(0, 183)
-
-[node name="Lvl1Prey4" parent="." unique_id=903652907 instance=ExtResource("4_jyhfs")]
-position = Vector2(-4, -175)
-
-[node name="Lvl1Prey5" parent="." unique_id=2099750255 instance=ExtResource("4_jyhfs")]
-position = Vector2(-201, 148)
-
-[node name="Lvl1Prey6" parent="." unique_id=725316263 instance=ExtResource("4_jyhfs")]
-position = Vector2(165, 98)
-
-[node name="Lvl1Prey7" parent="." unique_id=1803032464 instance=ExtResource("4_jyhfs")]
-position = Vector2(-461, 93)
+[node name="Prey" parent="." unique_id=881411334 instance=ExtResource("5_preym")]
+prey_scene = ExtResource("4_jyhfs")
+max_prey = 7
+respawn_delay = 4.0
+spawn_min_radius = 300.0
+spawn_max_radius = 600.0
