@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7ihi2f01juys"
-path="res://.godot/imported/prey_lanternfish.PNG-02c70d02546ece9a74752d6516e216b1.ctex"
+uid="uid://bod01ami1lcqr"
+path="res://.godot/imported/shrimp.png-eb7523879f2bb16a9ff4d7961abb77f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/prey_lanternfish.PNG"
-dest_files=["res://.godot/imported/prey_lanternfish.PNG-02c70d02546ece9a74752d6516e216b1.ctex"]
+source_file="res://assets/shrimp.png"
+dest_files=["res://.godot/imported/shrimp.png-eb7523879f2bb16a9ff4d7961abb77f2.ctex"]
 
 [params]
 
