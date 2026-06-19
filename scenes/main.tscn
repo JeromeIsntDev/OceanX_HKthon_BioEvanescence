@@ -16,7 +16,6 @@
 
 [node name="Player" parent="." unique_id=1663085969 groups=["player"] instance=ExtResource("1_o5qli")]
 
-<<<<<<< HEAD
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=2024496615]
 process_callback = 0
 limit_left = -1600
@@ -26,14 +25,10 @@ limit_bottom = 1600
 position_smoothing_enabled = true
 
 [node name="AudioListener2D" type="AudioListener2D" parent="Player" unique_id=1911857677]
-=======
-[node name="Camera2D" type="Camera2D" parent="." unique_id=2024496615]
->>>>>>> parent of 2d73e1d (Baseline Push)
 
 [node name="Enemy" parent="." unique_id=789585528 node_paths=PackedStringArray("player") instance=ExtResource("2_0wfyh")]
 position = Vector2(477, 208)
 player = NodePath("../Player")
-<<<<<<< HEAD
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=775250798]
 
@@ -62,5 +57,3 @@ position = Vector2(-4, -175)
 
 [node name="Lvl1Prey5" parent="." unique_id=2099750255 instance=ExtResource("4_jyhfs")]
 position = Vector2(-201, 148)
-=======
->>>>>>> parent of 2d73e1d (Baseline Push)
